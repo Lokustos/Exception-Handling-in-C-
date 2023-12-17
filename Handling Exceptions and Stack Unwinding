@@ -1,0 +1,22 @@
+#include <iostream>
+
+void riskyFunction() {
+    try {
+        throw std::runtime_error("Something went wrong!");
+    }
+    catch (const std::exception& e) {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+        throw; // Re-throwing the caught exception
+    }
+}
+
+int main() {
+    try {
+        riskyFunction();
+    }
+    catch (const std::exception& e) {
+        std::cout << "Caught in main: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
