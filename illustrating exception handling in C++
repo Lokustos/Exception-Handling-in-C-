@@ -1,0 +1,32 @@
+#include <iostream>
+
+// Function that throws an exception
+void processNumber(int num) {
+    if (num == 0) {
+        throw "Error: Cannot divide by zero!";
+    }
+    int result = 10 / num;
+    std::cout << "Result: " << result << std::endl;
+}
+
+int main() {
+    int userInput;
+
+    std::cout << "Enter a number: ";
+    std::cin >> userInput;
+
+    try {
+        // Attempt to perform the operation
+        processNumber(userInput);
+    }
+    catch (const char* errorMsg) {
+        // Handle the caught exception
+        std::cout << "Exception caught: " << errorMsg << std::endl;
+    }
+    catch (...) {
+        // Catch-all block for handling other types of exceptions
+        std::cout << "Unknown exception occurred." << std::endl;
+    }
+
+    return 0;
+}
