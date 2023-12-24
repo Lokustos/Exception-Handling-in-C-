@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+// Function that divides two numbers
+bool divide(int numerator, int denominator, int* result) {
+    if (denominator == 0) {
+        // Return false to indicate division by zero error
+        return false;
+    }
+
+    // Perform division and store result in pointer if successful
+    *result = numerator / denominator;
+    return true;
+}
+
+int main() {
+    int a = 10, b = 0, res;
+
+    if (divide(a, b, &res)) {
+        printf("Result of division: %d\n", res);
+    } else {
+        printf("Error: Division by zero\n");
+        // Handle the error scenario here
+    }
+
+    return 0;
+}
